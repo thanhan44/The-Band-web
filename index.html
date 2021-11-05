@@ -8,6 +8,7 @@
     <title>Trang THE BAND</title>
     <link rel="icon" href="assets/img/map.jpg" type="image/x-icon" />
     <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/responsive.css">
     <link rel="stylesheet" href="./assets/fonts/themify-icons/themify-icons.css">
 </head>
 
@@ -21,7 +22,7 @@
                 <li><a href="#tour">Tour</a></li>
                 <li><a href="#contact">Contact</a></li>
                 <li>
-                    <a href="">
+                    <a href="#">
                         More
                         <i class="nav-arrow-down ti-angle-down"></i>
                     </a>
@@ -37,6 +38,10 @@
             <!-- Begin: Search button -->
             <div class="search-button">
                 <i class="search-icon ti-search"></i>
+            </div>
+
+            <div id="mobile-menu" class="mobile-menu-button">
+                <i class="menu-icon ti-menu"></i>
             </div>
             <!-- End: Search button -->
 
@@ -251,6 +256,39 @@
             event.stopPropagation()
         })
     </script>
-</body>
 
+    <script>
+        var header=document.getElementById('header');
+        var mobileMenu=document.getElementById('mobile-menu');
+        var headerHeight =header.clientHeight;
+
+        // Đóng mở moblie menu
+        mobileMenu.onclick=function(){
+            var isClose =header.clientHeight===headerHeight;
+            if(isClose){
+                header.style.height='auto';
+            }else{
+                header.style.height=null;
+            }
+        }
+
+        // Tự động dóng khi chọn menu
+        var menuItems = document.querySelectorAll('#nav li a[href*="#"]');
+        for(var i=0; i<menuItems.length;i++){
+            var menuItem = menuItems[i];
+
+            menuItem.onclick=function(event){              
+                // Chỉnh khi nhấn MORE không bị mất
+                //Kiểm tra xem có anh chị em liền kề ko, nếu có thì anh chị em đó có chứa subnav không
+                //this là thẻ click vào
+                var isParenMenu = this.nextElementSibling && this.nextElementSibling.classList.contains('subnav');
+                if(isParenMenu){
+                    event.preventDefault(); // bỏ qua mặc định, giữ nguyên vị trí hiện tại
+                }else{
+                    header.style.height=null;
+                }
+            }
+        }
+    </script>
+</body>
 </html>

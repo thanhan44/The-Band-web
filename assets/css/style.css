@@ -57,6 +57,10 @@ html{
     margin-top: 16px !important;
 }
 
+.mt-32{
+    margin-top: 32px !important;
+}
+
 .pul-right{
     float: right !important;
 }
@@ -218,6 +222,7 @@ html{
 #slider .text-description{
     font-size: 15px;
     margin-top: 25px;
+    text-shadow: 0 0 1px #000;
 }
 
 /*About section*/
@@ -320,7 +325,7 @@ html{
 .place-list{
     margin: 32px -8px 48px;
     /* Cách 2: thêm row bên html*/
-    margin-top: 32px;
+    margin-top: 16px;
     /* margin-bottom: 48px; */
 }
 
@@ -369,6 +374,7 @@ html{
     display: inline-block;
     margin-top: 15px;
     border: none;
+    text-align: center;
 }
 
 .place-buy-button:hover{
@@ -384,6 +390,15 @@ html{
 .contact-info{
     font-size: 18px;
     line-height: 1.5;
+}
+
+.contact-info a{
+    color: #101aef;
+    opacity: 0.8;
+}
+
+.contact-info a:hover{
+    opacity: 1;
 }
 
 .contact-info i[class*="ti-"]{
@@ -408,6 +423,8 @@ html{
     border: 1px solid #000;
     padding: 10px 16px;
     float: right;
+    appearance: none;
+    -webkit-appearance: none;
 }
 
 /* Map */
